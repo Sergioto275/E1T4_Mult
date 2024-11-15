@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\sergi\\Documents\\E1\\E1T4_Mult\\AppErronka\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|c:\\users\\sergi\\documents\\e1\\e1t4_mult\\apperronka\\apperronka\\adminapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|solutionrelative:apperronka\\adminapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|C:\\Users\\sergi\\Documents\\E1\\E1T4_Mult\\AppErronka\\apperronka\\adminapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|solutionrelative:apperronka\\adminapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|c:\\users\\sergi\\documents\\e1\\e1t4_mult\\apperronka\\apperronka\\appbezero.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|solutionrelative:apperronka\\appbezero.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,14 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|c:\\users\\sergi\\documents\\e1\\e1t4_mult\\apperronka\\apperronka\\appbezero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|solutionrelative:apperronka\\appbezero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|C:\\Users\\sergi\\Documents\\E1\\E1T4_Mult\\AppErronka\\apperronka\\adminapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|solutionrelative:apperronka\\adminapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|c:\\users\\sergi\\documents\\e1\\e1t4_mult\\apperronka\\apperronka\\adminapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|solutionrelative:apperronka\\adminapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|c:\\users\\sergi\\documents\\e1\\e1t4_mult\\apperronka\\apperronka\\adminapp.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -55,20 +55,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "AdminApp.cs",
               "DocumentMoniker": "C:\\Users\\sergi\\Documents\\E1\\E1T4_Mult\\AppErronka\\AppErronka\\AdminApp.cs",
               "RelativeDocumentMoniker": "AppErronka\\AdminApp.cs",
               "ToolTip": "C:\\Users\\sergi\\Documents\\E1\\E1T4_Mult\\AppErronka\\AppErronka\\AdminApp.cs",
               "RelativeToolTip": "AppErronka\\AdminApp.cs",
-              "ViewState": "AgIAALgAAAAAAAAAAAAmwOAAAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAJ8AAAAAAAAAAAAgwLMAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-10T20:12:49.838Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "AdminApp.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\sergi\\Documents\\E1\\E1T4_Mult\\AppErronka\\AppErronka\\AdminApp.cs",
               "RelativeDocumentMoniker": "AppErronka\\AdminApp.cs",
@@ -80,20 +80,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "AppBezero.Designer.cs",
               "DocumentMoniker": "C:\\Users\\sergi\\Documents\\E1\\E1T4_Mult\\AppErronka\\AppErronka\\AppBezero.Designer.cs",
               "RelativeDocumentMoniker": "AppErronka\\AppBezero.Designer.cs",
               "ToolTip": "C:\\Users\\sergi\\Documents\\E1\\E1T4_Mult\\AppErronka\\AppErronka\\AppBezero.Designer.cs",
               "RelativeToolTip": "AppErronka\\AppBezero.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-14T23:30:07.693Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Bezero.cs",
               "DocumentMoniker": "C:\\Users\\sergi\\Documents\\E1\\E1T4_Mult\\AppErronka\\AppErronka\\Bezero.cs",
               "RelativeDocumentMoniker": "AppErronka\\Bezero.cs",
@@ -101,12 +101,11 @@
               "RelativeToolTip": "AppErronka\\Bezero.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T20:51:57.583Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-14T20:51:57.583Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "AppBezero.cs",
               "DocumentMoniker": "C:\\Users\\sergi\\Documents\\E1\\E1T4_Mult\\AppErronka\\AppErronka\\AppBezero.cs",
               "RelativeDocumentMoniker": "AppErronka\\AppBezero.cs",
@@ -114,8 +113,7 @@
               "RelativeToolTip": "AppErronka\\AppBezero.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAuwEQAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T20:14:45.799Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-10T20:14:45.799Z"
             }
           ]
         }

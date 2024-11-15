@@ -165,27 +165,40 @@ namespace AppErronka
         // Datuak inportatzeko botoia
         private void DatuakInportatuButton_Click(object sender, EventArgs e)
         {
-            // Ruta al archivo JAR de Java
-            string rutaJava = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "archivosJar", "Datuak.jar");
+            // Ruta absoluta al archivo JAR de Java
+            string rutaJava = @"C:\Users\sergi\Documents\E1\E1T4_Mult\AppErronka\AppErronka\archivosJar\Datuak.jar";
 
+            // Verifica si el archivo existe en la ruta especificada
             if (File.Exists(rutaJava))
             {
                 try
                 {
-                    // Configuración del proceso para ejecutar la clase de importación en Java
+                    string param = "import";
                     ProcessStartInfo startInfo = new ProcessStartInfo
                     {
-                        FileName = "java",
-                        Arguments = $"-cp \"{rutaJava}\" javaErronka.XMLimporter",
+                        FileName = @"C:\Program Files\Java\jdk-23\bin\java.exe", // Asegúrate de que esta ruta sea correcta
+                        Arguments = $"-cp \"{rutaJava}\" javaErronka.Main {param}",
                         CreateNoWindow = true,
-                        UseShellExecute = false
+                        UseShellExecute = false,
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        WorkingDirectory = Path.GetDirectoryName(rutaJava) // Establece el contexto de trabajo a la carpeta archivosJar
                     };
 
                     using (Process proceso = Process.Start(startInfo))
                     {
-                        proceso.WaitForExit();  // Esperar a que el proceso de Java termine
-                        MessageBox.Show("Datuak inportatu dira!", "Inportazioaren mezua", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        MessageBox.Show(" ");
+                        string output = proceso.StandardOutput.ReadToEnd();
+                        string error = proceso.StandardError.ReadToEnd();
+                        proceso.WaitForExit();
+
+                        if (!string.IsNullOrEmpty(error))
+                        {
+                            MessageBox.Show($"Error en Java: {error}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Datuak inportatu dira!", "Inportazioaren mezua", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -195,8 +208,10 @@ namespace AppErronka
             }
             else
             {
-                MessageBox.Show("Programa Java ez dago aurkitua!", "Errorea", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Programa Java ez dago aurkitua! Ruta: " + rutaJava, "Errorea", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
         }
 
         // Eskaera bat gehitzeko metodoa
