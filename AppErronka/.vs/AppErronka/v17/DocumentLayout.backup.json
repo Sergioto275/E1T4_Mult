@@ -1,0 +1,121 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ikaslea\\Desktop\\AppErronka\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|c:\\users\\ikaslea\\desktop\\apperronka\\apperronka\\adminapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|solutionrelative:apperronka\\adminapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|c:\\users\\ikaslea\\desktop\\apperronka\\apperronka\\appbezero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|solutionrelative:apperronka\\appbezero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|c:\\users\\ikaslea\\desktop\\apperronka\\apperronka\\bezero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|solutionrelative:apperronka\\bezero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|C:\\Users\\Ikaslea\\Desktop\\AppErronka\\apperronka\\adminapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|solutionrelative:apperronka\\adminapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|c:\\users\\ikaslea\\desktop\\apperronka\\apperronka\\adminapp.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|solutionrelative:apperronka\\adminapp.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|c:\\users\\ikaslea\\desktop\\apperronka\\apperronka\\appbezero.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D4B3ED6-E307-4BF9-8D30-9FE71F2D46F8}|AppErronka\\AppErronka.csproj|solutionrelative:apperronka\\appbezero.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AdminApp.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Ikaslea\\Desktop\\AppErronka\\AppErronka\\AdminApp.Designer.cs",
+              "RelativeDocumentMoniker": "AppErronka\\AdminApp.Designer.cs",
+              "ToolTip": "C:\\Users\\Ikaslea\\Desktop\\AppErronka\\AppErronka\\AdminApp.Designer.cs",
+              "RelativeToolTip": "AppErronka\\AdminApp.Designer.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAiwFYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T00:40:33.384Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminApp.cs",
+              "DocumentMoniker": "C:\\Users\\Ikaslea\\Desktop\\AppErronka\\AppErronka\\AdminApp.cs",
+              "RelativeDocumentMoniker": "AppErronka\\AdminApp.cs",
+              "ToolTip": "C:\\Users\\Ikaslea\\Desktop\\AppErronka\\AppErronka\\AdminApp.cs",
+              "RelativeToolTip": "AppErronka\\AdminApp.cs",
+              "ViewState": "AgIAAAoBAAAAAAAAAAAgwDABAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T20:12:49.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AdminApp.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Ikaslea\\Desktop\\AppErronka\\AppErronka\\AdminApp.cs",
+              "RelativeDocumentMoniker": "AppErronka\\AdminApp.cs",
+              "ToolTip": "C:\\Users\\Ikaslea\\Desktop\\AppErronka\\AppErronka\\AdminApp.cs [Design]",
+              "RelativeToolTip": "AppErronka\\AdminApp.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T00:44:29.979Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AppBezero.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Ikaslea\\Desktop\\AppErronka\\AppErronka\\AppBezero.Designer.cs",
+              "RelativeDocumentMoniker": "AppErronka\\AppBezero.Designer.cs",
+              "ToolTip": "C:\\Users\\Ikaslea\\Desktop\\AppErronka\\AppErronka\\AppBezero.Designer.cs",
+              "RelativeToolTip": "AppErronka\\AppBezero.Designer.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAiwGEAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T23:30:07.693Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Bezero.cs",
+              "DocumentMoniker": "C:\\Users\\Ikaslea\\Desktop\\AppErronka\\AppErronka\\Bezero.cs",
+              "RelativeDocumentMoniker": "AppErronka\\Bezero.cs",
+              "ToolTip": "C:\\Users\\Ikaslea\\Desktop\\AppErronka\\AppErronka\\Bezero.cs",
+              "RelativeToolTip": "AppErronka\\Bezero.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T20:51:57.583Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppBezero.cs",
+              "DocumentMoniker": "C:\\Users\\Ikaslea\\Desktop\\AppErronka\\AppErronka\\AppBezero.cs",
+              "RelativeDocumentMoniker": "AppErronka\\AppBezero.cs",
+              "ToolTip": "C:\\Users\\Ikaslea\\Desktop\\AppErronka\\AppErronka\\AppBezero.cs",
+              "RelativeToolTip": "AppErronka\\AppBezero.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAuwEQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T20:14:45.799Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
