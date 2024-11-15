@@ -15,14 +15,30 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+/**
+ * XML fitxategiak prozesatzeko eta datu basera inportatzeko klasea.
+ * Udalerriak eta probintziak inportatzen ditu XML fitxategien bidez.
+ */
 public class XMLImporter {
-    private Connection connection;
+    private Connection connection; // Datu baseko konexioa
 
+    /**
+     * XMLImporter klasearen konstruktorea.
+     * 
+     * @param connection Datu basearekin konexioa ezartzeko.
+     */
     public XMLImporter(Connection connection) {
         this.connection = connection;
     }
 
-    public void importHerriak (String xmlFilePath) throws NumberFormatException, Exception {
+    /**
+     * Herriak (udalerriak) XML fitxategitik inportatzeko metodoa.
+     * 
+     * @param xmlFilePath XML fitxategiaren bidea
+     * @throws NumberFormatException Zenbakien formatua okerra denean
+     * @throws Exception Beste errore orokor bat gertatzen denean
+     */
+    public void importHerriak(String xmlFilePath) throws NumberFormatException, Exception {
         PreparedStatement pstmt = null;
 
         try {
@@ -36,6 +52,7 @@ public class XMLImporter {
             // XML-ko row guztiak (datuak) lortu
             NodeList nList = document.getElementsByTagName("row");
 
+            // XML-ko datuak aztertu
             for (int i = 0; i < nList.getLength(); i++) {
                 Node nNode = nList.item(i);
 
@@ -74,7 +91,14 @@ public class XMLImporter {
         }
     }
 
-    // Udalerri baten existitzen den egiaztatzeko metodoa
+    /**
+     * Udalerri baten existitzen den egiaztatzeko metodoa.
+     * 
+     * @param connection Datu baseko konexioa
+     * @param udalerriKode Udalerriaren kodea
+     * @return true bada, udalerria existitzen da, false bada, ez
+     * @throws Exception SQL errore bat gertatzen bada
+     */
     private static boolean udalerriExists(Connection connection, int udalerriKode) throws Exception {
         String sql = "SELECT KODEA FROM HERRIAK WHERE KODEA = ?";
         PreparedStatement pstmt = connection.prepareStatement(sql);
@@ -83,8 +107,14 @@ public class XMLImporter {
         return rs.next(); // Emaitza badago, udalerria existitzen da
     }
 
-    
-    public void importProbintziak (String xmlFilePath) throws NumberFormatException, Exception {
+    /**
+     * Probintziak XML fitxategitik inportatzeko metodoa.
+     * 
+     * @param xmlFilePath XML fitxategiaren bidea
+     * @throws NumberFormatException Zenbakien formatua okerra denean
+     * @throws Exception Beste errore orokor bat gertatzen denean
+     */
+    public void importProbintziak(String xmlFilePath) throws NumberFormatException, Exception {
         PreparedStatement pstmt = null;
 
         try {
@@ -98,6 +128,7 @@ public class XMLImporter {
             // XML-ko row guztiak (datuak) lortu
             NodeList nList = document.getElementsByTagName("row");
 
+            // XML-ko datuak aztertu
             for (int i = 0; i < nList.getLength(); i++) {
                 Node nNode = nList.item(i);
 
@@ -136,17 +167,35 @@ public class XMLImporter {
         }
     }
 
-    // Probintzia baten existitzen den egiaztatzeko metodoa
+
+    /**
+     * Probintzia baten existitzen den egiaztatzeko metodoa.
+     * 
+     * @param connection Konexioa, datu-basearekin konektatzeko.
+     * @param probintziaKode Probintziaren kodea, egiaztatu nahi den probintziarena.
+     * @return true Probintzia datu-basean existitzen bada, bestela false.
+     * @throws Exception Datu-basearekin edo SQL kontsultarekin lotutako errore guztiak.
+     */
     private static boolean probintziaExists(Connection connection, int probintziaKode) throws Exception {
+        // SQL kontsulta probintzia kodea erabiliz egiaztatzeko
         String sql = "SELECT KODEA FROM PROBINTZIAK WHERE KODEA = ?";
+        // SQL sententzia prestatzea probintziaren kodea parametro gisa erabiliz
         PreparedStatement pstmt = connection.prepareStatement(sql);
         pstmt.setInt(1, probintziaKode);
+        // Kontsulta exekutatzea
         ResultSet rs = pstmt.executeQuery();
+        // Kontsulta emaitzarik badu, probintzia existitzen da
         return rs.next(); // Emaitza badago, probintzia existitzen da
     }
 
-    
-    
+
+     
+    /**
+     * XML fitxategitik etiketak inportatzeko metodoa.
+     * 
+     * @param xmlFilePath XML fitxategiaren bidea, etiketak jasotzeko.
+     * @throws Exception XML fitxategia prozesatzerakoan edo datu-basearekin lotutako errore guztiak.
+     */
     public void importEtiketak(String xmlFilePath) throws Exception {
         PreparedStatement pstmt = null;
 
@@ -155,52 +204,67 @@ public class XMLImporter {
             File xmlFile = new File(xmlFilePath);
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
+            // XML fitxategitik Document objektua sortzea
             Document document = builder.parse(xmlFile);
-            document.getDocumentElement().normalize();
+            document.getDocumentElement().normalize(); // Dokumentua normalizatu (edukiaren egonkortasuna)
 
-            // XML-ko row guztiak (datuak) lortu
+            // XML-ko "row" elementuak lortu (hauek dira datuen errenkadak)
             NodeList nList = document.getElementsByTagName("row");
 
+            // XML-ko errenkada guztietan zehar ibiltzea
             for (int i = 0; i < nList.getLength(); i++) {
+                // Errenkadako nodoa lortu
                 Node nNode = nList.item(i);
 
+                // Nodoa XML elementu bat den egiaztatzea
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) nNode;
 
-                    // Dokumentuaren izena hautatu
+                    // Dokumentuaren izena (kasuan honetan, "marks" eremua)
                     String documentName = getTextContentOrDefault(eElement, "marks", null);
                     
-                    // Etiketa existitzen den egiaztatu (aukerakoa)
+                    // Etiketa jada datu-basean badagoen egiaztatzea (aukera bat)
                     try {
-                        // Etiketa datu-basean txertatu
+                        // Etiketa datu-basean sartzea
                         String sql = "INSERT INTO ETIKETAK (ETIKETA) VALUES (?)";
                         pstmt = connection.prepareStatement(sql);
-                        pstmt.setString(1, documentName); // documentName erabiltzen da ETIKETA gisa
-                        pstmt.executeUpdate();
-                        System.out.println("Etiqueta sartuta: " + documentName);
+                        pstmt.setString(1, documentName); // Dokumentuaren izena etiketa gisa erabili
+                        pstmt.executeUpdate(); // Inportazioa exekutatzea
+                        System.out.println("Etiqueta sartuta: " + documentName); // Konfirmazioa inprimatu
                     } catch (SQLException e) {
-                        // Errorea etiketa sartzean
+                        // Etiketa sartzean errorea egon bada
                         System.err.println("Errorea Etiketa sartzerakoan: " + documentName + ". " + e.getMessage());
                     }
                 }
             }
         } catch (Exception e) {
-            // Errorea XML fitxategia prozesatzerakoan
+            // XML fitxategia prozesatzerakoan errorea egon bada
             System.err.println("Errorea XML fitxategia prozesatzerakoan: " + e.getMessage());
-            e.printStackTrace();
+            e.printStackTrace(); // Errorearen trace-a inprimatu
         } finally {
-            // PreparedStatement-a itxi
+            // PreparedStatement-a beti itxi behar da
             if (pstmt != null) {
                 try {
-                    pstmt.close(); // PreparedStatement-a itxi
+                    pstmt.close(); // PreparedStatement-a itxi saiatzea
                 } catch (SQLException e) {
-                    // Errorea PreparedStatement-a itxi ezin izan delako
+                    // PreparedStatement-a itxi ezin izan bada
                     System.err.println("Error al cerrar el PreparedStatement: " + e.getMessage());
                 }
             }
         }
     }
+
+
     
+    /**
+     * XML fitxategi batetik kanpingak inportatzeko metodoa.
+     * Metodo honek XML fitxategi bat kargatzen du, bertako datuak irakurtzen ditu eta
+     * datuak datu basean sartzen saiatzen da. Hala ere, lehenik eta behin, kanpingaren kodea
+     * egiaztatzen da jada existitzen den ala ez.
+     *
+     * @param xmlFilePath XML fitxategiaren helbidea.
+     * @throws Exception XML fitxategia kargatzean edo datu basean sartutakoan errore bat gertatzen bada.
+     */
     public void importKanpinak(String xmlFilePath) throws Exception {
         PreparedStatement pstmtInsert = null;
         PreparedStatement pstmtCheck = null;
@@ -257,7 +321,7 @@ public class XMLImporter {
                                     + "EMAILA, WEBGUNEA, KATEGORIA, EDUKIERA, POSTAKODEA, HERRI_KODEA, "
                                     + "PROBINTZIA_KODEA, FRIENDLY_URL, PHYSICAL_URL, DATA_XML, METADATA_XML, ZIP_FILE) "
                                     + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                            
+                                    
                             pstmtInsert = connection.prepareStatement(sql);
                             pstmtInsert.setString(1, kodea); // KODEA
                             pstmtInsert.setString(2, izena); // IZENA
@@ -308,7 +372,18 @@ public class XMLImporter {
         }
     }
 
-    // Testuaren edukia edo balio bat itzultzeko metodo laguntzailea
+
+    /**
+     * Testuaren edukia edo balio bat itzultzeko metodo laguntzailea.
+     * 
+     * Metodo honek, XML dokumentu baten elementu baten tag izenaren arabera, bere edukia itzultzen du.
+     * Tag-ak balio duen kasuan, bere testua itzultzen da; bestela, lehenetsitako balioa itzultzen da.
+     * 
+     * @param element XML elementua, tag-aren edukiaren bila egindako bilaketa.
+     * @param tagName Bilatzen den tag-aren izena.
+     * @param defaultValue Tag-ak baliorik ez badu, itzuliko den lehenetsitako balioa.
+     * @return Tag-ak duen edukiaren testua, edo lehenetsitako balioa, tag-ak edukirik ez badu.
+     */
     private String getTextContentOrDefault(Element element, String tagName, String defaultValue) {
         NodeList nodeList = element.getElementsByTagName(tagName);
         if (nodeList.getLength() > 0) {
@@ -317,8 +392,16 @@ public class XMLImporter {
         return defaultValue; // Balio lehenetsia itzuli
     }
 
-  
-
+    /**
+     * XML fitxategi bat prozesatu eta Kanpin etiketak KANPIN_ETIKETAK taulatik sartu edo egiaztatu.
+     * 
+     * Metodo honek, XML fitxategi batean agertzen diren Kanpin etiketak taulan egiaztatzen ditu. 
+     * Etiketa baten IDa lortu edo sortu eta, ondoren, Kanpinarekin lotutako erlazioak KANPIN_ETIKETAK taulako 
+     * erregistroekin egiaztatzen ditu. Ez badago erlaziorik, hori taulan sartzen du.
+     * 
+     * @param xmlFilePath XML fitxategiaren ibilbidea, fitxategia kargatzeko eta prozesatzeko.
+     * @throws Exception XML fitxategia prozesatzerakoan edo datu-basean errore bat gertatzen bada.
+     */
     public void importKanpinEtiketak(String xmlFilePath) throws Exception {
         PreparedStatement pstmtSelectEtiqueta = null;
         PreparedStatement pstmtInsertEtiqueta = null;
@@ -412,13 +495,29 @@ public class XMLImporter {
         }
     }
 
-    // XML elementu batetik testua ateratzeko metodo laguntzailea
+
+    /**
+     * XML elementu batetik testua ateratzeko metodo laguntzailea.
+     * 
+     * @param element XML elementua, non tagName izeneko etiketa bilatuko den.
+     * @param tagName Bilatu beharreko etiketa izena.
+     * @param defaultValue Etiketa aurkitzen ez bada, itzuliko den balio lehenetsia.
+     * @return Etiketaren testua, edo tagName etiketa ez badago, defaultValue balioa.
+     */
     private String getTextContentOrDefault2(Element element, String tagName, String defaultValue) {
         Node node = element.getElementsByTagName(tagName).item(0);
         return node != null ? node.getTextContent() : defaultValue; // Balio lehenetsia itzuli
     }
 
-    // Udalerri eta lurralde kodeen arabera kanpinaren kodea lortzeko metodoa
+    /**
+     * Udalerri eta lurralde kodeen arabera kanpinaren kodea lortzeko metodoa.
+     * 
+     * @param connection Datubasearekin konektatzeko konexioa.
+     * @param municipalityCode Udalerriaren kodea.
+     * @param territoryCode Lurraldearen kodea.
+     * @return Kanpinaren kodea, edo null balioa ez badago.
+     * @throws SQLException Datubasearen errorea gertatzen bada.
+     */
     private String obtenerKanpinKodea(Connection connection, String municipalityCode, String territoryCode) throws SQLException {
         String kanpinKodea = null;
         String query = "SELECT KODEA FROM KANPINAK WHERE HERRI_KODEA = ? AND PROBINTZIA_KODEA = ?";
@@ -432,4 +531,5 @@ public class XMLImporter {
         }
         return kanpinKodea; // Kanpinaren kodea itzuli
     }
+
 }

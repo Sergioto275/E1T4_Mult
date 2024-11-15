@@ -1,1 +1,0 @@
-INDEX VERSION 1.134+C:\Users\sergi\Documents\E1\E1T4_Mult\ERRONKAJAVA\.metadata\.plugins\org.eclipse.jdt.core

@@ -14,37 +14,42 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+/**
+ * Kanpinak XML fitxategia sortzeko klasea.
+ * Klase honek datu-basearen datuak hartzen ditu eta XML fitxategian esportatzen ditu.
+ */
 public class CampingXMLGenerator {
     private Connection connection;
 
+    /**
+     * CampingXMLGenerator klasearen konstruktorea.
+     * 
+     * @param connection Datu-basearekiko konektibitatea.
+     */
     public CampingXMLGenerator(Connection connection) {
         this.connection = connection;
     }
 
+    /**
+     * Kanpinak datuak XML fitxategian esportatzen ditu.
+     * 
+     * @param xmlFileName Sortu nahi den XML fitxategiaren izena.
+     */
     public void exportToXML(String xmlFileName) {
         try {
-            // Obtener la ruta base donde está ejecutándose el .jar
-          /*  String basePath = System.getProperty("user.dir");
-            File exportFolder = new File(basePath, "exportazioak");
-
-            // Asegurarse de que la carpeta "exportazioak" existe
-            if (!exportFolder.exists()) {
-                exportFolder.mkdir();
-            }*/
-
-            // Ruta final para guardar el archivo
+            // Fitxategia non gordeko den adierazten duen bidea sortzen da
             File finalFile = new File(xmlFileName);
 
-            // Crear documento XML
+            // XML dokumentua sortzeko prestaketa
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
             Document doc = docBuilder.newDocument();
 
-            // Crear el elemento raíz
+            // Root elementua sortu
             Element rootElement = doc.createElement("kanpinak");
             doc.appendChild(rootElement);
 
-            // Consulta SQL
+            // SQL kontsulta
             String sql = "SELECT K.KODEA, K.IZENA, K.KOKALEKUA, K.HELBIDEA, K.POSTAKODEA, " +
                          "H.IZENA AS HERRIA, P.IZENA AS PROBINTZIA, K.KATEGORIA, K.EDUKIERA " +
                          "FROM KANPINAK K " +
@@ -54,12 +59,12 @@ public class CampingXMLGenerator {
             try (Statement stmt = connection.createStatement();
                  ResultSet rs = stmt.executeQuery(sql)) {
 
-                // Iterar sobre los resultados y crear nodos XML
+                // Emaitzak lortu eta XML nodoak sortu
                 while (rs.next()) {
                     Element kanpina = doc.createElement("kanpina");
                     kanpina.setAttribute("id", rs.getString("KODEA"));
 
-                    // Añadir subelementos
+                    // Subelementuak gehitu
                     addElement(doc, kanpina, "izena", rs.getString("IZENA"));
                     addElement(doc, kanpina, "kokalekua", rs.getString("KOKALEKUA"));
                     addElement(doc, kanpina, "helbidea", rs.getString("HELBIDEA"));
@@ -72,7 +77,7 @@ public class CampingXMLGenerator {
                     rootElement.appendChild(kanpina);
                 }
 
-                // Guardar el documento XML en el archivo
+                // XML dokumentua fitxategian gorde
                 TransformerFactory transformerFactory = TransformerFactory.newInstance();
                 Transformer transformer = transformerFactory.newTransformer();
                 DOMSource source = new DOMSource(doc);
@@ -80,16 +85,24 @@ public class CampingXMLGenerator {
 
                 transformer.transform(source, result);
 
-                System.out.println("Archivo XML exportado correctamente a: " + finalFile.getAbsolutePath());
+                System.out.println("XML fitxategia ondo esportatu da: " + finalFile.getAbsolutePath());
 
             } catch (Exception e) {
-                System.err.println("Error al exportar datos a XML: " + e.getMessage());
+                System.err.println("Errore bat egon da datuak XML-ra esportatzerakoan: " + e.getMessage());
             }
         } catch (Exception e) {
-            System.err.println("Error al manejar la carpeta exportazioak: " + e.getMessage());
+            System.err.println("Errore bat egon da 'exportazioak' karpetarekin lan egiten: " + e.getMessage());
         }
     }
 
+    /**
+     * Subelementu bat gehitzen du XML elementuari.
+     * 
+     * @param doc      XML dokumentuaren instanzia.
+     * @param parent   Guraso elementua.
+     * @param tagName  Subelementuaren izena.
+     * @param textContent Subelementuaren edukia.
+     */
     private void addElement(Document doc, Element parent, String tagName, String textContent) {
         Element element = doc.createElement(tagName);
         element.appendChild(doc.createTextNode(textContent));
